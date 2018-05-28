@@ -96,21 +96,23 @@ class frontcontroller extends Controller
     {
         $symptom = symptoms::query()->where('illness_id', '=', $id)->get();
         $adv = advertise::orderBy('id', 'desc')->take(2)->get();
-
         return view('front.second', compact('symptom','adv'));
     }
 
 
     public function yes($id)
     {
-        $symptom = symptoms::query()->where('id', '=', $id)->value('diagnosis_yes');
+       $symptom = symptoms::query()->where('id', '=', $id)->value('diagnosis_yes');
+       $symp = symptoms::query()->where('id', '=', $id)->value('advice');
+        //$symptom = symptoms::query()->where('id', '=', $id)->select('diagnosis_yes','advice')->get();
+       //$symptom = symptoms::query()->where('id', '=', $id)->pluck('diagnosis_yes','advice');
         $adv = advertise::orderBy('id', 'desc')->take(2)->get();
-        return view('front.third', compact('symptom','adv'));
+        return view('front.third', compact('symptom','symp','adv'));
     }
 
-    public function no($id)
+    public function advice($id)
     {
-        $symptom = symptoms::query()->where('id', '=', $id)->value('diagnosis_no');
+        $symptom = symptoms::query()->where('id', '=', $id)->value('advice');
         $adv=advertise::all();
         return view('front.third', compact('symptom','adv'));
     }
@@ -118,16 +120,6 @@ class frontcontroller extends Controller
 
 
 
-    public function c()
-    {
-
-        $adv = advertise::all();
-        $dogs = advertise::orderBy('id', 'desc')->take(2)->get();
-
-        return $dogs;
-
-
-    }
 
 
 }

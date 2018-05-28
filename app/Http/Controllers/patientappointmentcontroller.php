@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\category;
+use App\patientappointment;
 use Illuminate\Http\Request;
 
-class categorycotroller extends Controller
+class patientappointmentcontroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,8 @@ class categorycotroller extends Controller
      */
     public function index()
     {
-
-        $category=category::all();
-        return view('admin.illness_category.index',compact('category'));
+       $p=patientappointment::all();
+        return view('admin.appointment.appointments.appointment_scheduale',compact('p'));
     }
 
     /**
@@ -26,7 +25,7 @@ class categorycotroller extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -37,14 +36,12 @@ class categorycotroller extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,['patient_name'=>'required']);
 
-        category::create($request->all());
-
-        return back()->with('success','Item created successfully');
-        ;
+        patientappointment::create($request->all());
+        //return view('front.appointment.appointmentValidation');
+        return view('front.appointment.submit');
     }
-
-
 
     /**
      * Display the specified resource.
@@ -54,9 +51,7 @@ class categorycotroller extends Controller
      */
     public function show($id)
     {
-        $symptoms=category::find($id)->category;
-        $category=category::all();
-        return view('admin.illness_category.index',compact(['symptoms','category']));
+        //
     }
 
     /**
@@ -67,8 +62,7 @@ class categorycotroller extends Controller
      */
     public function edit($id)
     {
-        $category=category::find($id);
-        return view('admin.illness_category.edit',compact('category'));
+        //
     }
 
     /**
@@ -80,9 +74,7 @@ class categorycotroller extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        category::find($id)->update($request->all());
-        return redirect()->route('category.index')->with('success','تم التعديل بنجاح');
+        //
     }
 
     /**
@@ -93,8 +85,12 @@ class categorycotroller extends Controller
      */
     public function destroy($id)
     {
-        category::destroy($id);
+        patientappointment::destroy($id);
         return back();
+    }
 
+    public function back()
+    {
+        return redirect()->route('index');
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\category;
+use App\hospital;
 use Illuminate\Http\Request;
 
-class categorycotroller extends Controller
+class hospitalcontroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,8 @@ class categorycotroller extends Controller
      */
     public function index()
     {
-
-        $category=category::all();
-        return view('admin.illness_category.index',compact('category'));
+        $hospital=hospital::all();
+        return view('admin.appointment.hospital.index',compact('hospital'));
     }
 
     /**
@@ -26,7 +25,7 @@ class categorycotroller extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -37,14 +36,9 @@ class categorycotroller extends Controller
      */
     public function store(Request $request)
     {
-
-        category::create($request->all());
-
-        return back()->with('success','Item created successfully');
-        ;
+        hospital::create($request->all());
+        return back();
     }
-
-
 
     /**
      * Display the specified resource.
@@ -54,9 +48,7 @@ class categorycotroller extends Controller
      */
     public function show($id)
     {
-        $symptoms=category::find($id)->category;
-        $category=category::all();
-        return view('admin.illness_category.index',compact(['symptoms','category']));
+        //
     }
 
     /**
@@ -67,8 +59,7 @@ class categorycotroller extends Controller
      */
     public function edit($id)
     {
-        $category=category::find($id);
-        return view('admin.illness_category.edit',compact('category'));
+        //
     }
 
     /**
@@ -80,9 +71,7 @@ class categorycotroller extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        category::find($id)->update($request->all());
-        return redirect()->route('category.index')->with('success','تم التعديل بنجاح');
+        //
     }
 
     /**
@@ -93,8 +82,26 @@ class categorycotroller extends Controller
      */
     public function destroy($id)
     {
-        category::destroy($id);
+        hospital::destroy($id);
         return back();
-
     }
+
+
+    public function fronthospital()
+    {
+        $hospital=hospital::all();
+        return view('front.appointment.hospitals',compact('hospital'));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 }

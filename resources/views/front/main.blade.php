@@ -35,17 +35,17 @@
     <div class="top-bar-right">
         <ol class="menu">
             <li>
-                <a href="#">
-                    التحاليل
+                <a href="{{route('index')}}">
+الرئيسية
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{url('frontspecialism')}}">
                     الحجز
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{route('index')}}">
 
                     التشخيص
                 </a>

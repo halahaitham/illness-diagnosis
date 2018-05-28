@@ -50,6 +50,7 @@
         </ul>
         </tr>
         </table>
+
 <span style="padding-right: 20em">
         <a class="btn btn-primary btn-lg" data-toggle="modal" href="#modal-id">اضافة مرض</a>
 </span>

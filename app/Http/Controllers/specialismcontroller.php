@@ -2,29 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\category;
-use App\illness;
 use App\specialism;
-use App\symptoms;
 use Illuminate\Http\Request;
 
-class symptomscotroller extends Controller
+class specialismcontroller extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $symptoms=symptoms::all();
-        foreach ($symptoms as $s){
-            //                               forgien key
-            $cat=category::query()->find($s->illness_id);
-            $s->category=$cat['name'];
-        }
-        return view('admin.symptoms.index',compact('symptoms'));
-
+        $specialism=specialism::all();
+        return view('admin.appointment.specialism.index',compact('specialism'));
     }
 
     /**
@@ -34,8 +25,7 @@ class symptomscotroller extends Controller
      */
     public function create()
     {
-        $category=category::pluck('name','id');
-        return view('admin.symptoms.add_symptoms',compact('category'));
+        //
     }
 
     /**
@@ -46,13 +36,8 @@ class symptomscotroller extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'content_A'=>'required',
-            'diagnosis_yes'=>'required',
-
-        ]);
-        symptoms::create($request->all());
-        return redirect()->route('symptoms.index');
+        specialism::create($request->all());
+        return back();
     }
 
     /**
@@ -74,8 +59,7 @@ class symptomscotroller extends Controller
      */
     public function edit($id)
     {
-        $symptoms=symptoms::find($id);
-        return view('admin.symptoms.edit_symptoms', compact('symptoms'));
+        //
     }
 
     /**
@@ -87,13 +71,7 @@ class symptomscotroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-           'content_A'=>'required',
-           'diagnosis_yes' =>'required',
-
-        ]);
-        symptoms::find($id)->update($request->all());
-        return redirect()->route('symptoms.index')->with('success','تم التعديل بنجاح');
+        //
     }
 
     /**
@@ -104,28 +82,16 @@ class symptomscotroller extends Controller
      */
     public function destroy($id)
     {
-        symptoms::destroy($id);
+        specialism::destroy($id);
         return back();
     }
 
-    public function dia()
+    public function frontspecialism()
     {
-        $symp=symptoms::all();
-            return view('admin.diagnosis.index',compact('symp'));
 
+        $specialism=specialism::all();
+        return view('front.appointment.specialism',compact('specialism'));
     }
-
-
-
-    public function cancel()
-    {
-        return redirect()->route('symptoms.index');
-    }
-
-
-
-
-
 
 
 }

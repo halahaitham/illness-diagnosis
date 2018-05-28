@@ -13,8 +13,9 @@
         <tbody>
         <tr style="font-size:15px; color: #0d6aad">
             <td></td>
-            <th >التشخيص نعم</th>
-            <th style="padding-left: 12em">التشخيص لا</th>
+            <td>نصائح طبيه</td>
+            <th style="padding-left: 12em">التشخيص </th>
+
             <th style="padding-left: 12em">الاعراض</th>
             <th style="padding-left: 12em">الامراض</th>
         </tr>
@@ -52,8 +53,10 @@
 
 
             </td>
+
+            <td>{{$symptom->advice}}</td>
             <td> {{$symptom->diagnosis_yes}}</td>
-            <td>{{$symptom->diagnosis_no}}</td>
+
 
 
                 <td>

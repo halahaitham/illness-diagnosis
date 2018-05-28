@@ -37,6 +37,27 @@
             <li class="submenu">
                 <a href="#">
                     <i class="glyphicon glyphicon-list"></i>
+                        الحجز
+                    <span class="caret pull-right"></span>
+                </a>
+                <!-- Sub menu -->
+                <ul>
+                    <li><a href="{{route('specialism.index')}}">التخصصات</a></li>
+
+                </ul>
+                <ul>
+                    <li><a href="{{route('schedual.index')}}">مواعيد الاطباء</a></li>
+
+                </ul>
+
+            </li>
+
+
+
+
+            <li class="submenu">
+                <a href="#">
+                    <i class="glyphicon glyphicon-list"></i>
                     الاعلانات
                     <span class="caret pull-right"></span>
                 </a>

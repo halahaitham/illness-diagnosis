@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
 </head>
+
+
 <body>
 <div  class="top-bar">
     <div style="color:white" class="top-bar-left">
@@ -29,24 +31,26 @@
     <div class="top-bar-right">
         <ol class="menu">
             <li>
-                <a href="shirts.html">
-                    التحاليل
+                <a href="{{route('index')}}">
+                    الرئيسية
                 </a>
             </li>
             <li>
-                <a href="#">
-                    الحجز
-                </a>
-            </li>
-            <li>
-                <a href="#">
-
+                <a href="{{route('index')}}">
                     التشخيص
                 </a>
             </li>
+            <li>
+                <a href="{{url('frontspecialism')}}">
+
+                    الحجز
+                </a>
+            </li>
+
         </ol>
     </div>
 </div>
+
 
 <!--///////////////////////////////////////////////////////////////-->
 <div class="hero text-center" >
@@ -70,7 +74,7 @@
 <div class="subheader text-center">
     <h2>
         <strong>
-            <a href="#" style="color: ">
+            <a href="{{url('frontspecialism')}}" style="color: ">
 
                MAKE AN APPOINTMENT
 
@@ -79,7 +83,18 @@
     </h2>
 </div>
 <HR>
-<div style="background-color: whitesmoke">
+<div style="background-color: whitesmoke; ">
+    <div style="padding-left: 20em; padding-right: 20em; padding-top: 2em;">
+
+        <form action="/search" method="post" >
+            {{csrf_field()}}
+            <input type="text" name="search" placeholder="what is your symptoms..">
+            <input type="submit" value="search" class="btn btn-info">
+        </form>
+    </div>
+
+
+
 @yield('content')
 </div>
 

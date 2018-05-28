@@ -30,6 +30,7 @@ class User extends Authenticatable
 
 
     public function isadmin(){
+        //will look for admin column in database
         return $this->admin;
     }
 
@@ -41,6 +42,11 @@ class User extends Authenticatable
     }
 
 
+
+    public function hospitals()
+    {
+        return $this->belongsTo(hospital::class);
+    }
 }
 
 

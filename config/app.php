@@ -147,6 +147,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Adumskis\LaravelAdvert\AdvertServiceProvider::class,
+        AdvanceSearch\AdvanceSearchProvider\AdvanceSearchProvider::class,
 
         /*
          * Package Service Providers...
@@ -210,7 +211,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'AdvMng'    => Adumskis\LaravelAdvert\AdvertFacade::class,
-
+        'Search' => AdvanceSearch\AdvanceSearchProvider\Facades\SearchFacades::class,
     ],
 
 ];

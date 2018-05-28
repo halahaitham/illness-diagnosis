@@ -4,7 +4,7 @@
             <div class="col-md-5">
                 <!-- Logo -->
                 <div class="logo">
-                    <h1><a href="{{url('/')}}">Admin</a></h1>
+                    <h1><a href="{{url('admin.index')}}">Admin</a></h1>
                 </div>
             </div>
 

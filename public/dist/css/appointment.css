@@ -1,0 +1,23 @@
+.content
+{
+   text-align: right;
+    padding: 50px;
+    margin-bottom: 30px;
+    background:lavender;
+    border-radius: 10px;
+    border-left: 1px solid #eee;
+    border-top: 1px solid #eee;
+    border-right: 2px solid #eee;
+    border-bottom: 2px solid #eee;
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    font-size: 30px;
+
+
+}
+
+a{
+    color: #337ab7;
+    text-decoration: none
+}

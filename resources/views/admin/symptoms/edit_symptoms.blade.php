@@ -3,8 +3,12 @@
 
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
+
+            <div class="alert alert-info">
+                <strong>يجب ملئ content A  و diagnosis!</strong>
+            </div>
             {!! Form::open(['route' =>[ 'symptoms.update',$symptoms->id], 'method' => 'PATCH','files'=>true]) !!}
-            <h3 style="color: #0c4d78"> :اضافه الاعراض</h3>
+            <h3 style="color: #0c4d78"> :تعديل الاعراض</h3>
 
 
             <div class="form-group">
@@ -60,14 +64,18 @@
             <h3 style="color: #0c4d78"> :التشخيص</h3>
 
             <div class="form-group">
-                {!! Form::label('diagnosis_yes', 'diagnosis_yes') !!}
+                {!! Form::label('diagnosis_yes', 'diagnosis') !!}
                 {!!Form::text('diagnosis_yes', null, array('class'=>'form-control'))!!}
             </div>
 
+            <h3 style="color: #0c4d78"> :نصائح طبيه</h3>
+
             <div class="form-group">
-                {!! Form::label('diagnosis_no', 'diagnosis_no') !!}
-                {!!Form::text('diagnosis_no', null, array('class'=>'form-control'))!!}
+                {!! Form::label('advice', 'advice') !!}
+                {!!Form::text('advice', null, array('class'=>'form-control'))!!}
             </div>
+
+
 
 
 <table>
